@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vanilla Test</title>
+</head>
+<body>
+  <h1>Vanilla javascript</h1>
+  <h3 id="ST">some text</h3>
+  <button id="btn1" onclick=jsfunc1()>Click me !</button>
+  <hr/>
+  <input type="file" name="" id="">
+  <hr/>
+    <input id="input" type="text"/>
+    <button id="copy">Copy</button>
+    <div>
+      <button onclick="addKey('@')">@</button>
+    </div>
+  <hr/>
+  <script src="main.js"></script>
+  <script>
+    function copy() {
+      let copyText = document.querySelector("#input");
+      copyText.select();
+      document.execCommand("copy");
+    }
+    const cible = document.querySelector("#input")
+    document.querySelector("#copy").addEventListener("click", copy);
+
+    function addKey(newkey) {
+      cible.value += newkey
+    }
+
+  </script>
+</body>
+</html>
