@@ -15383,13 +15383,13 @@ function compareGuessWithTarget(targetWord, guess) {
     let letter = localGuess.charAt(i)
     if (!localTargetWord.includes(letter)) {
       // localTargetWord = setCharAt(localTargetWord,i,"*")
-      console.log(letter)
+      // console.log(letter)
       localGuess = setCharAt(localGuess,i,"*")
       statusArray[i] = "wrong"
     }
   }
 
-  console.log("Wrong >> " + localGuess + " / " + localTargetWord)
+  // console.log("Wrong >> " + localGuess + " / " + localTargetWord)
 
   // CORRECT
   for (let i = 0; i < WORD_LENGTH; i++) {
@@ -15397,14 +15397,14 @@ function compareGuessWithTarget(targetWord, guess) {
     let target = localTargetWord.charAt(i)
 
     if (letter === target && letter != "*") {
-      console.log(letter)
+      // console.log(letter)
       localTargetWord = setCharAt(localTargetWord,i,"*")
       localGuess = setCharAt(localGuess,i,"*")
       statusArray[i] = "correct"
     }
   }
 
-  console.log("Correct >> " + localGuess + "/" + localTargetWord)
+  // console.log("Correct >> " + localGuess + "/" + localTargetWord)
 
   // WRONG-LOCATION
   for (let i = 0; i < WORD_LENGTH; i++) {
@@ -15412,7 +15412,7 @@ function compareGuessWithTarget(targetWord, guess) {
     let target = localTargetWord.charAt(i)
 
     if (localTargetWord.includes(letter) && letter != "*") {
-      console.log(letter)
+      // console.log(letter)
       localTargetWord = localTargetWord.replace(letter,"*")
       localGuess = setCharAt(localGuess,i,"*")
       statusArray[i] = "wrong-location"
@@ -15421,7 +15421,7 @@ function compareGuessWithTarget(targetWord, guess) {
     }
   }
 
-  console.log("Wrong-location >> " + localGuess + "/" + localTargetWord)
+  // console.log("Wrong-location >> " + localGuess + "/" + localTargetWord)
 
   return statusArray
 }
@@ -15447,7 +15447,7 @@ function submitGuess() {
   stopInteraction()
   // PREPTILE
   arrayTileStatus = compareGuessWithTarget(targetWord, guess)
-  console.log(arrayTileStatus)
+  // console.log(arrayTileStatus)
   activeTiles.forEach((...params) => flipTile(...params, guess))
 }
 
