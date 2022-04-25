@@ -206,3 +206,30 @@ body {
 .alert.hide {
   opacity: 0;
 }
+
+/*******************************/
+/**************iPhone***********/
+/*******************************/
+
+@media only screen and (max-width: 500px) {
+
+  body {
+    min-height: 80vh;
+  }
+
+  .keyboard {
+    grid-template-columns: repeat(20, minmax(auto, 1fr));
+    grid-auto-rows: 3em;
+    padding-bottom: 20%;
+    font-size: 150%;
+  }
+  
+  
+  
+  .guess-grid {
+    grid-template-columns: repeat(5, 6em);
+    grid-template-rows: repeat(6, 6em);
+    align-content: start;
+  }
+
+}
