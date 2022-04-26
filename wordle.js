@@ -15521,6 +15521,19 @@ function showAlert(message, duration = 1000) {
   }, duration)
 }
 
+function showGoogle(message, word) {
+  const googleButton = document.createElement("button")
+  googleButton.textContent = message + word
+  googleButton.classList.add("googleButton")
+  googleButton.addEventListener("click", showDefinition)
+  alertContainer.prepend(googleButton)
+}
+
+function showDefinition() {
+  var searchUrl = 'https://www.google.com/search?q=define%3A' + targetWord
+  window.open(searchUrl, '_blank');
+}
+
 function shakeTiles(tiles) {
   tiles.forEach(tile => {
     tile.classList.add("shake")
@@ -15539,6 +15552,7 @@ function checkWinLose(guess, tiles) {
     showAlert("You Win", 5000)
     danceTiles(tiles)
     stopInteraction()
+    showGoogle('Show the meaning of: ', targetWord.toUpperCase())
     return
   }
 
@@ -15546,6 +15560,7 @@ function checkWinLose(guess, tiles) {
   if (remainingTiles.length === 0) {
     showAlert(targetWord.toUpperCase(), null)
     stopInteraction()
+    showGoogle('Show the meaning of: ', targetWord.toUpperCase())
   }
 }
 

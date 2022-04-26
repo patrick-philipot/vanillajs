@@ -207,6 +207,16 @@ body {
   opacity: 0;
 }
 
+button.googleButton {
+  background-color: #6AAA64;
+  color:white;
+  font-size: 150%;
+  border-radius: 5px;
+  border: solid white 3px;
+  padding: 1em;
+  opacity:1;
+}
+
 /*******************************/
 /**************iPhone***********/
 /*******************************/
