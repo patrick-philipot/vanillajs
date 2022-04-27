@@ -15308,6 +15308,8 @@ const targetWord = targetWords[ Math.floor(Math.random() * targetWords.length) ]
 // const targetWord = "paper" // CARER // FIXED
 // const targetWord = "kebab" // break // FIXED
 
+const googleButton = document.createElement("button")
+
 var arrayTileStatus = []
 
 console.log("Nombre de mots à trouver " + targetWords.length)
@@ -15522,7 +15524,7 @@ function showAlert(message, duration = 1000) {
 }
 
 function showGoogle(message, word) {
-  const googleButton = document.createElement("button")
+  // const googleButton = document.createElement("button")
   googleButton.textContent = message + word
   googleButton.classList.add("googleButton")
   googleButton.addEventListener("click", showDefinition)
@@ -15530,6 +15532,8 @@ function showGoogle(message, word) {
 }
 
 function showDefinition() {
+  // const googleButton = document.getElementsByClassName('googleButton');
+  googleButton.style.opacity = 0;
   var searchUrl = 'https://www.google.com/search?q=define%3A' + targetWord
   window.open(searchUrl, '_blank');
 }
