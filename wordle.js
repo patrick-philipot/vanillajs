@@ -15299,13 +15299,13 @@ const offsetFromDate = new Date(2022, 0, 1)
 const msOffset = Date.now() - offsetFromDate
 const dayOffset = msOffset / 1000 / 60 / 60 / 24
 // const targetWord = targetWords[Math.floor(dayOffset)]
-const targetWord = targetWords[ Math.floor(Math.random() * targetWords.length) ]
+// const targetWord = targetWords[ Math.floor(Math.random() * targetWords.length) ]
 // const targetWord = "those" // GEESE // FIXED
 // const targetWord = "floss" // FLOOR // FIXED
 // const targetWord = "theft" // THESE // FIXED
 // const targetWord = "close" // FLOOR // FIXED
 // const targetWord = "fjord" // DOORS // FIXED
-// const targetWord = "paper" // CARER // FIXED
+const targetWord = "paper" // CARER // FIXED
 // const targetWord = "kebab" // break // FIXED
 
 const googleButton = document.createElement("button")

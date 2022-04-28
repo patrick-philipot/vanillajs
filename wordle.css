@@ -215,6 +215,17 @@ button.googleButton {
   border: solid white 3px;
   padding: 1em;
   opacity:1;
+  /* animation */
+  width: 200px;
+  position: relative;
+  animation-name: example;
+  animation-duration: 3s;  
+  animation-fill-mode: forwards;
+}
+
+@keyframes example {
+  from {margin-left: -400px;}
+  to {margin-left:50%; transform: translateX(-50px); }
 }
 
 /*******************************/
