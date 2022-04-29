@@ -27,7 +27,14 @@ label {
 }
 
 #letters-out {
-  width: 20em;
+  width: 17em;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
 }
 
 #letter-in-1,
@@ -36,7 +43,7 @@ label {
 #letter-in-4,
 #letter-in-5 {
   width: 1em;
-  margin: 0 1em 0 .3em;
+  margin: 0 0.5em 0 0;
 }
 
 /* bouton de recherche */
@@ -70,4 +77,13 @@ code {
     margin:auto;
     font-size: 120%;
   }
+
+  #letter-in-1,
+  #letter-in-2,
+  #letter-in-3,
+  #letter-in-4,
+  #letter-in-5 {
+  width: 1em;
+  margin: 0 1em 0 .3em;
+}
 }

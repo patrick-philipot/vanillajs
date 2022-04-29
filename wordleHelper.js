@@ -2331,7 +2331,7 @@ const findWord = document.getElementById("findWord")
 findWord.addEventListener("click", () => {
   // testInputs()
   // lettres connues
-  const _in_ = letters_in.value
+  const _in_ = letters_in.value.toLowerCase()
 
   if (_in_ === "") {
     alert("Vous devez entrer au moins une lettre présente dans le mot à deviner")
@@ -2349,7 +2349,7 @@ findWord.addEventListener("click", () => {
     
   
   // éliminer les mots contenant les lettres non présentes
-  const _out_ = letters_out.value
+  const _out_ = letters_out.value.toLowerCase()
   
   var t2 = t1.filter( (mot) => {
     for (i=0; i < _out_.length; i++) {
@@ -2363,11 +2363,11 @@ findWord.addEventListener("click", () => {
   // tenir compte des lettres bien placées
   // array des lettres bien placées (? pour valeur manquante)
   const wellPlaced = []
-  wellPlaced.push(letter_1.value === "" ? "?" : letter_1.value)
-  wellPlaced.push(letter_2.value === "" ? "?" : letter_2.value)
-  wellPlaced.push(letter_3.value === "" ? "?" : letter_3.value)
-  wellPlaced.push(letter_4.value === "" ? "?" : letter_4.value)
-  wellPlaced.push(letter_5.value === "" ? "?" : letter_5.value)
+  wellPlaced.push(letter_1.value === "" ? "?" : letter_1.value.toLowerCase())
+  wellPlaced.push(letter_2.value === "" ? "?" : letter_2.value.toLowerCase())
+  wellPlaced.push(letter_3.value === "" ? "?" : letter_3.value.toLowerCase())
+  wellPlaced.push(letter_4.value === "" ? "?" : letter_4.value.toLowerCase())
+  wellPlaced.push(letter_5.value === "" ? "?" : letter_5.value.toLowerCase())
 
   console.log(wellPlaced)
 
