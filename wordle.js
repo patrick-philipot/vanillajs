@@ -15341,6 +15341,7 @@ function handleMouseClick(e) {
   }
 
   if (e.target.matches("[data-delete]")) {
+    // console.log(e.target)
     deleteKey()
     return
   }
