@@ -2347,22 +2347,49 @@ findWord.addEventListener("click", () => {
     return true
   })
     
-  console.log(t1)
   
   // éliminer les mots contenant les lettres non présentes
   const _out_ = letters_out.value
   
-  const t2 = t1.filter( (mot) => {
+  var t2 = t1.filter( (mot) => {
     for (i=0; i < _out_.length; i++) {
       if (mot.includes(_out_.charAt(i))) return false
     }
     return true
   })
 
-  console.log(t2)
+  dispArray(t2)
 
+  // tenir compte des lettres bien placées
+  // array des lettres bien placées (? pour valeur manquante)
+  const wellPlaced = []
+  wellPlaced.push(letter_1.value === "" ? "?" : letter_1.value)
+  wellPlaced.push(letter_2.value === "" ? "?" : letter_2.value)
+  wellPlaced.push(letter_3.value === "" ? "?" : letter_3.value)
+  wellPlaced.push(letter_4.value === "" ? "?" : letter_4.value)
+  wellPlaced.push(letter_5.value === "" ? "?" : letter_5.value)
+
+  console.log(wellPlaced)
+
+  wellPlaced.forEach(function(letter, index) {
+    if (letter !=  "?") {
+      t2 = t2.filter( (mot) => {
+        return mot.charAt(index) === wellPlaced[index]
+      })
+    }
+  })
+
+  dispArray(t2)
 
 })
+
+function dispArray( array ) {
+  const codeArea = document.querySelector("#solutions > code")
+  if (array.length > 0 )  
+      codeArea.textContent = array.join(", ")
+  else 
+    codeArea.textContent = "Aucun résultat !";
+}
 
 function testInputs() {
   // pour tests de saisie uniquement

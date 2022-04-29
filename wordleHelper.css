@@ -42,9 +42,24 @@ label {
 /* bouton de recherche */
 #findWord {
   padding: 1em;
-  margin: .5em;
+  margin: 0;
   width: 100%;
   font-size: 120%;
+}
+
+/* affichage des solutions possibles */
+#solutions {
+  display: flex;
+  flex-direction: column;
+}
+
+code {
+  display: block;
+  justify-content: center;
+  padding: 1em;
+  font-weight: bold;
+  font-size: 110%;
+  color: lightcoral;
 }
 
 
