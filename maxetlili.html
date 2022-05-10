@@ -6,17 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Max et Lili</title>
     <style>
-        .lu {
-            background-color: greenyellow;
-        }
+
+      #dataTable {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #dataTable td, #dataTable th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      #dataTable tr:nth-child(even){background-color: #f2f2f2;}
+
+      /*#dataTable tr:hover {background-color: #ddd;}*/
+
+      #dataTable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+      }
+
+      .lu {
+          background-color: greenyellow;
+      }
     </style>
 </head>
 <body>
+  <h1>Ma bibliothèque Max et Lili</h1>
     <table id="dataTable" border="1">
         <thead id="tableHead">
           <tr id="tableRow">
             <th>Numéro</th>
             <th>Titre du livre</th>
+            <th>Couv.</th>
             <th>Lu</th>
           </tr>
         </thead>
