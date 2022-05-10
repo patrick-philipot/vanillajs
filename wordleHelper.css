@@ -69,6 +69,9 @@ code {
   color: lightcoral;
 }
 
+.footer {
+  display: none;
+}
 
 /*   Autres que smartphone  */
 @media only screen and (min-width: 500px) {
@@ -77,13 +80,19 @@ code {
     margin:auto;
     font-size: 120%;
   }
-
+  
   #letter-in-1,
   #letter-in-2,
   #letter-in-3,
   #letter-in-4,
   #letter-in-5 {
-  width: 1em;
-  margin: 0 1em 0 .3em;
-}
+    width: 1em;
+    margin: 0 1em 0 .3em;
+  }
+  .footer {
+    display:block;
+    font-size: small;
+    color: gray;
+    text-align: center;
+  }
 }
