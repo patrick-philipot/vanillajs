@@ -139,5 +139,10 @@ data.forEach((item, index) => {
   });
 
 function AffCouv( item ) {
-  console.log(item)
+  // conversion en chaine formatée avec des zéros à gauche
+  var sItem = item.toString()
+  if (item < 10) sItem = "00" + sItem
+    else if(item < 100) sItem = "0" + sItem;
+
+  console.log(sItem)
 }
