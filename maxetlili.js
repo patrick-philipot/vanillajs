@@ -6,7 +6,7 @@ var data = [
     { "title": "Les parents de zoe divorcent", "lu": "non" },
     { "title": "Max n'aime pas l'ecole", "lu": "non" },
     { "title": "Lili est amoureuse", "lu": "non" },
-    { "title": "Max est fan de jeux video", "lu": "oui" },
+    { "title": "Max est fou de jeux video", "lu": "oui" },
     { "title": "Lili découvre sa mamie", "lu": "non" },
     { "title": "Max va à l'hopital", "lu": "non" },
     { "title": "Lili n'aime que les frites", "lu": "oui" },
@@ -133,16 +133,28 @@ data.forEach((item, index) => {
     var row = dataTable.insertRow();
     row.insertCell(0).innerHTML = index+1;
     row.insertCell(1).innerHTML = item.title;
-    row.insertCell(2).innerHTML = '<button style="width:100%" onClick="AffCouv('+(index+1)+')">Pict</button>';
+    row.insertCell(2).innerHTML = '<button  class="flat" onClick="AffCouv('+(index+1)+')"><img class="lili" src="ico-lili.png"></button>';
     row.insertCell(3).innerHTML = item.lu;
     if (item.lu === "oui") row.className = "lu";
   });
+
+const closeModal = document.querySelector(".dialog-close");
+const modal = document.querySelector("#modal");
+const imgCouverture = document.querySelector("#couverture");
+
+closeModal.addEventListener('click', () => { 
+  modal.close();
+});
 
 function AffCouv( item ) {
   // conversion en chaine formatée avec des zéros à gauche
   var sItem = item.toString()
   if (item < 10) sItem = "00" + sItem
     else if(item < 100) sItem = "0" + sItem;
+  var imgUrl = "./maxetlili/max-et-lili_" + sItem + ".jpg"
+  imgCouverture.src = imgUrl
+
+  modal.showModal();
 
   console.log(sItem)
 }

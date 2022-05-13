@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max et Lili</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./maxetlili/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./maxetlili/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./maxetlili/favicon-16x16.png">
+    <title>Ma bibliothèque Max et Lili</title>
     <style>
 
       #dataTable {
@@ -33,20 +36,67 @@
       .lu {
           background-color: greenyellow;
       }
+
+      .lili {
+        margin: 0;
+        padding: 0;
+        width: 40px;
+        height: 45px;
+        border-radius: 50%;
+      }
+      .flat {
+        margin: 0;
+        padding: 0;
+        border: none;
+        /* background-color: white; */
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border: none;
+        cursor:pointer;
+        overflow: hidden;  
+      }
+
+      /** dialog **/
+      #modal img {
+        display: block;
+        /* display: flex;
+        flex-direction: column; */
+      }
+
+      .dialog-close {
+        margin: 1rem 0;
+        padding: 2rem 1rem;
+        font-size:large;
+        width: 100%;
+        background-color: greenyellow;
+        border:none;
+        border-radius: 5px;
+      }
+
+      #couverture {
+        width: 228px;
+        height: 300px;
+      }
     </style>
 </head>
 <body>
-  <h1>Ma bibliothèque Max et Lili</h1>
+  <div>
+    <h1>Ma bibliothèque Max et Lili</h1>
     <table id="dataTable" border="1">
-        <thead id="tableHead">
-          <tr id="tableRow">
-            <th>Numéro</th>
-            <th>Titre du livre</th>
-            <th>Couv.</th>
-            <th>Lu</th>
-          </tr>
-        </thead>
-      </table>
+      <thead id="tableHead">
+        <tr id="tableRow">
+          <th>Numéro</th>
+          <th>Titre du livre</th>
+          <th>Couv.</th>
+          <th>Lu</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <dialog id="modal">
+    <img id="couverture" src="" alt="">
+    <button class="dialog-close">Fermer</button>
+  </dialog>
 
 <script src="maxetlili.js"></script>    
 </body>
