@@ -15299,7 +15299,7 @@ var GameStarted = false
 var HardModeSet = false
 
 // global for hard-mode
-const gCORRECT = ["","","","",""]
+const gCORRECT = ["*","*","*","*","*"]
 var gWRONGLOC = ""
 
 const keyboard = document.querySelector("[data-keyboard]")
@@ -15309,8 +15309,8 @@ const offsetFromDate = new Date(2022, 0, 1)
 const msOffset = Date.now() - offsetFromDate
 const dayOffset = msOffset / 1000 / 60 / 60 / 24
 // const targetWord = targetWords[Math.floor(dayOffset)]
-const targetWord = targetWords[ Math.floor(Math.random() * targetWords.length) ]
-// const targetWord = "those" // GEESE // FIXED
+// const targetWord = targetWords[ Math.floor(Math.random() * targetWords.length) ]
+const targetWord = "manga" // GEESE // FIXED
 // const targetWord = "floss" // FLOOR // FIXED
 // const targetWord = "theft" // THESE // FIXED
 // const targetWord = "close" // FLOOR // FIXED
@@ -15342,7 +15342,7 @@ function stopInteraction() {
 function handleHardMode(e) {
   if (GameStarted===true) {
     showAlert('Hard mode can only be enabled at the start of a round', duration = 3000)
-    hmCheckbox.checked = false
+    hmCheckbox.checked = HardModeSetadieu
   } else {
     showAlert('Hard mode enabled', duration = 2000)
     HardModeSet = true
@@ -15408,11 +15408,41 @@ function compareGuessWithTarget(targetWord, guess) {
   var statusArray = ["","","","",""]
   var localTargetWord = targetWord
 
-  // hardmode - reset à chaque GUESS
-  gWRONGLOC = ""
-
+  
   // le jeu a commencé - trop tard pour le Hard Mode
   GameStarted = true
+  
+  // hard-mode
+  if (HardModeSet) {
+    // 1. the GUESS doit inclure toutes les lettre bien placées en bonne olace
+    for (let i = 0; i < WORD_LENGTH; i++) {
+      let EXPECTED = gCORRECT[i]
+      if (EXPECTED === "*") {
+        // continue rien à faire
+        continue
+      } else {
+        let letter = localGuess.charAt(i)
+        if (letter != EXPECTED) {
+          // sortir de la fonction
+          showAlert(`Letter ${i+1} needs to be ${EXPECTED.toUpperCase()}`, 1000)
+          // statusArray = []
+          return []
+        }
+      }
+    }
+    // 2. the guess doit inclure toutes les lettres mal placées
+    for (let i = 0; i < gWRONGLOC.length; i++) {
+      if (!(localGuess.includes(gWRONGLOC[i]))) {
+          // sortir de la fonction
+          showAlert(`Letter ${gWRONGLOC[i].toUpperCase()} needs to be in guess!`, 1000)
+          // statusArray = []
+          return []        
+      }
+    }
+  }
+  
+  // hardmode - reset à chaque GUESS
+  gWRONGLOC = ""
 
   // WRONG 
   for (let i = 0; i < WORD_LENGTH; i++) {
@@ -15487,6 +15517,12 @@ function submitGuess() {
   stopInteraction()
   // PREPTILE
   arrayTileStatus = compareGuessWithTarget(targetWord, guess)
+  // hard-mode
+  if (arrayTileStatus.length === 0 ) {
+    startInteraction()
+    return
+  } 
+
   // console.log(arrayTileStatus)
   activeTiles.forEach((...params) => flipTile(...params, guess))
 }
