@@ -15292,6 +15292,16 @@ const dictionary = [
 const WORD_LENGTH = 5
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
+// hard-mode
+const hmCheckbox = document.querySelector("#hard-mode")
+hmCheckbox.addEventListener("click", handleHardMode)
+var GameStarted = false
+var HardModeSet = false
+
+// global for hard-mode
+const gCORRECT = ["","","","",""]
+var gWRONGLOC = ""
+
 const keyboard = document.querySelector("[data-keyboard]")
 const alertContainer = document.querySelector("[data-alert-container]")
 const guessGrid = document.querySelector("[data-guess-grid]")
@@ -15327,6 +15337,17 @@ function startInteraction() {
 function stopInteraction() {
   document.removeEventListener("click", handleMouseClick)
   document.removeEventListener("keydown", handleKeyPress)
+}
+
+function handleHardMode(e) {
+  if (GameStarted===true) {
+    showAlert('Hard mode can only be enabled at the start of a round', duration = 3000)
+    hmCheckbox.checked = false
+  } else {
+    showAlert('Hard mode enabled', duration = 2000)
+    HardModeSet = true
+  }
+  // console.log("handleHardMode " + hmCheckbox.checked)
 }
 
 function handleMouseClick(e) {
@@ -15383,9 +15404,15 @@ function deleteKey() {
 }
 
 function compareGuessWithTarget(targetWord, guess) {
+  var localGuess = guess
   var statusArray = ["","","","",""]
   var localTargetWord = targetWord
-  var localGuess = guess
+
+  // hardmode - reset à chaque GUESS
+  gWRONGLOC = ""
+
+  // le jeu a commencé - trop tard pour le Hard Mode
+  GameStarted = true
 
   // WRONG 
   for (let i = 0; i < WORD_LENGTH; i++) {
@@ -15410,10 +15437,12 @@ function compareGuessWithTarget(targetWord, guess) {
       localTargetWord = setCharAt(localTargetWord,i,"*")
       localGuess = setCharAt(localGuess,i,"*")
       statusArray[i] = "correct"
+      // hardmode
+      gCORRECT[i] = letter
     }
   }
 
-  // console.log("Correct >> " + localGuess + "/" + localTargetWord)
+  console.log("gCORRECT >> " + gCORRECT)
 
   // WRONG-LOCATION
   for (let i = 0; i < WORD_LENGTH; i++) {
@@ -15425,12 +15454,14 @@ function compareGuessWithTarget(targetWord, guess) {
       localTargetWord = localTargetWord.replace(letter,"*")
       localGuess = setCharAt(localGuess,i,"*")
       statusArray[i] = "wrong-location"
+      // hardMode
+      gWRONGLOC += letter
     } else if (letter != "*") {
       statusArray[i] = "wrong"
     }
   }
 
-  // console.log("Wrong-location >> " + localGuess + "/" + localTargetWord)
+  console.log("Wrong-location >> " + gWRONGLOC)
 
   return statusArray
 }
@@ -15478,17 +15509,6 @@ function flipTile(tile, index, array, guess) {
       tile.classList.remove("flip")
       tile.dataset.state = arrayTileStatus[index]
       key.classList.add(arrayTileStatus[index])
-/*       if (targetWord[index] === letter) {
-        tile.dataset.state = "correct"
-        key.classList.add("correct")
-        // localTargetWord = setCharAt(localTargetWord,index,"*")
-      } else if (targetWord.includes(letter)) {
-        tile.dataset.state = "wrong-location"
-        key.classList.add("wrong-location")
-      } else {
-        tile.dataset.state = "wrong"
-        key.classList.add("wrong")
-      } */
 
       if (index === array.length - 1) {
         tile.addEventListener(
