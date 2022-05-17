@@ -15342,10 +15342,11 @@ function stopInteraction() {
 function handleHardMode(e) {
   if (GameStarted===true) {
     showAlert('Hard mode can only be enabled at the start of a round', duration = 3000)
-    hmCheckbox.checked = HardModeSetadieu
+    hmCheckbox.checked = HardModeSet
   } else {
-    showAlert('Hard mode enabled', duration = 2000)
-    HardModeSet = true
+    HardModeSet = !HardModeSet
+    let status = HardModeSet ? "enabled" : "disabled"
+    showAlert(`Hard mode ${status}`, duration = 2000)
   }
   // console.log("handleHardMode " + hmCheckbox.checked)
 }
