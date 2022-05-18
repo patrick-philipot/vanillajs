@@ -27,6 +27,11 @@
 .settings p {
   display: block;
   margin: 2em 0; 
+  cursor:pointer;
+}
+
+.hmOn {
+  color:#6AAA64;
 }
 
 svg {
@@ -95,7 +100,7 @@ svg {
   display: grid;
   justify-content: center;
   align-content: center;
-  flex-grow: 1;
+  /*flex-grow: 1;*/
   grid-template-columns: repeat(5, 4em);
   grid-template-rows: repeat(6, 4em);
   gap: .25em;

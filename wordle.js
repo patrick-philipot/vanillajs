@@ -15293,8 +15293,8 @@ const WORD_LENGTH = 5
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
 // hard-mode
-const hmCheckbox = document.querySelector("#hard-mode")
-hmCheckbox.addEventListener("click", handleHardMode)
+const hmPara = document.querySelector("#hard-mode")
+hmPara.addEventListener("click", handleHardMode)
 var GameStarted = false
 var HardModeSet = false
 
@@ -15342,13 +15342,15 @@ function stopInteraction() {
 function handleHardMode(e) {
   if (GameStarted===true) {
     showAlert('Hard mode can only be enabled at the start of a round', duration = 3000)
-    hmCheckbox.checked = HardModeSet
   } else {
     HardModeSet = !HardModeSet
     let status = HardModeSet ? "enabled" : "disabled"
     showAlert(`Hard mode ${status}`, duration = 2000)
   }
-  // console.log("handleHardMode " + hmCheckbox.checked)
+  // console.log("handleHardMode " + hmPara.checked)
+  if (HardModeSet) 
+      {hmPara.classList.add("hmOn")}
+   else {hmPara.classList.remove("hmOn")}
 }
 
 function handleMouseClick(e) {
