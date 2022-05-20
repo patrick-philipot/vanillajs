@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IOS Test</title>
+  <style>
+      body {
+        color: whitesmoke;
+        background-color: grey;
+      }
+
+      /* settings */
+      .settings {
+        display: flex;
+        flex-direction: row;
+        /*background-color: greenyellow;*/
+        justify-content: center;
+      }
+
+      .settings p {
+        display: block;
+        margin: 2em 0; 
+        cursor:pointer;
+        font-size: 140%;
+        user-select: none;
+      }
+
+      p span {
+        opacity: 0;
+        color: greenyellow;
+        font-weight: 900;
+        font-size: 140%;
+      }
+
+      p.hmOn span {
+        opacity: 1.0;
+      }
+
+      .square {
+        background-color: greenyellow;
+        width: 150px;
+        height: 150px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+
+  </style>
+</head>
+<body>
+  <div class="settings">
+    <p id="hard-mode">Toggle Hard Mode <span>X &#10004;</span></p>
+  </div>
+
+  <div class="square">
+  </div>
+
+  <script>
+    const hmPara = document.querySelector("#hard-mode")
+    hmPara.addEventListener("click", handleHardMode)
+    var HardModeSet = false
+
+    function handleHardMode(e) {
+
+    HardModeSet = !HardModeSet
+
+    if (HardModeSet) 
+        {hmPara.classList.add("hmOn")}
+    else {hmPara.classList.remove("hmOn")}
+
+    }
+
+  </script>
+</body>
+</html>
