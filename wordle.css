@@ -34,8 +34,8 @@
 p span {
   opacity: 0;
   color: greenyellow;
-  font-weight: 900;
-  font-size: 140%;
+  /*font-weight: 900;
+  font-size: 140%;*/
 }
 
 p.hmOn span {
