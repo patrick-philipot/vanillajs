@@ -27,7 +27,7 @@
 
       .settings p {
         display: block;
-        margin: 2em 0; 
+        margin: .2em 0 1em 0; 
         cursor:pointer;
         font-size: 140%;
         user-select: none;
