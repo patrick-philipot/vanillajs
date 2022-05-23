@@ -15293,10 +15293,15 @@ const WORD_LENGTH = 5
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
 // hard-mode
-const hmPara = document.querySelector("#hard-mode")
-hmPara.addEventListener("click", handleHardMode)
 var GameStarted = false
 var HardModeSet = false
+const hmPara = document.querySelector("#hard-mode")
+hmPara.addEventListener("click", handleHardMode)
+// localStorage 
+if (! localStorage.getItem('hardmode')) {
+    localStorage.setItem('hardmode',HardModeSet ? "yes" : "no")
+}
+HardModeSet = localStorage.getItem('hardmode') === 'yes'
 
 // global for hard-mode
 const gCORRECT = ["*","*","*","*","*"]
@@ -15351,6 +15356,10 @@ function handleHardMode(e) {
   if (HardModeSet) 
       {hmPara.classList.add("hmOn")}
    else {hmPara.classList.remove("hmOn")}
+   // localStorage 
+  if (localStorage.hardmode) {
+    localStorage.hardmode = HardModeSet ? "yes" : "no"
+  }
 }
 
 function handleMouseClick(e) {
