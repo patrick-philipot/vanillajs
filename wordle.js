@@ -15292,7 +15292,7 @@ const dictionary = [
 const WORD_LENGTH = 5
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
-const VERSION = '2.001'
+const VERSION = '2.002'
 const AUTHOR = 'Patrick Philipot'
 const SESAME = 'ccccc'
 // hard-mode
@@ -15528,7 +15528,7 @@ function submitGuess() {
 
   if (!dictionary.includes(guess)) {
     if (guess === SESAME) {
-      showAlert(`Version ${VERSION} by ${AUTHOR}`, 5000)
+      showAlert(`WORDLE clone - ver. ${VERSION} by ${AUTHOR}`, 5000)
     } else {
       showAlert("Not in word list")
       shakeTiles(activeTiles)
