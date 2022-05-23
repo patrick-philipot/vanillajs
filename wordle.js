@@ -15302,6 +15302,9 @@ if (! localStorage.getItem('hardmode')) {
     localStorage.setItem('hardmode',HardModeSet ? "yes" : "no")
 }
 HardModeSet = localStorage.getItem('hardmode') === 'yes'
+if (HardModeSet) 
+{hmPara.classList.add("hmOn")}
+else {hmPara.classList.remove("hmOn")}
 
 // global for hard-mode
 const gCORRECT = ["*","*","*","*","*"]
