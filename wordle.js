@@ -15292,6 +15292,9 @@ const dictionary = [
 const WORD_LENGTH = 5
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
+const VERSION = '2.001'
+const AUTHOR = 'Patrick Philipot'
+const SESAME = 'ccccc'
 // hard-mode
 var GameStarted = false
 var HardModeSet = false
@@ -15524,8 +15527,12 @@ function submitGuess() {
   }, "")
 
   if (!dictionary.includes(guess)) {
-    showAlert("Not in word list")
-    shakeTiles(activeTiles)
+    if (guess === SESAME) {
+      showAlert(`Version ${VERSION} by ${AUTHOR}`, 5000)
+    } else {
+      showAlert("Not in word list")
+      shakeTiles(activeTiles)
+    }
     return
   }
 
