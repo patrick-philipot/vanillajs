@@ -15292,7 +15292,7 @@ const dictionary = [
 const WORD_LENGTH = 5
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
-const VERSION = '2.002'
+const VERSION = '2.003'
 const AUTHOR = 'Patrick Philipot'
 const SESAME = 'ccccc'
 // hard-mode
@@ -15333,8 +15333,8 @@ const googleButton = document.createElement("button")
 
 var arrayTileStatus = []
 
-console.log("Nombre de mots à trouver " + targetWords.length)
-console.log("Nombre de mots du dictionnaire " + dictionary.length)
+// console.log("Nombre de mots à trouver " + targetWords.length)
+// console.log("Nombre de mots du dictionnaire " + dictionary.length)
 console.log(targetWord)
 
 
@@ -15490,7 +15490,7 @@ function compareGuessWithTarget(targetWord, guess) {
     }
   }
 
-  console.log("gCORRECT >> " + gCORRECT)
+  // console.log("gCORRECT >> " + gCORRECT)
 
   // WRONG-LOCATION
   for (let i = 0; i < WORD_LENGTH; i++) {
@@ -15509,7 +15509,7 @@ function compareGuessWithTarget(targetWord, guess) {
     }
   }
 
-  console.log("Wrong-location >> " + gWRONGLOC)
+  // console.log("Wrong-location >> " + gWRONGLOC)
 
   return statusArray
 }
@@ -15631,15 +15631,41 @@ function shakeTiles(tiles) {
 }
 
 function checkWinLose(guess, tiles) {
+  const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])")
+  // console.log(`remainingTiles.length = ${remainingTiles.length}`)
+
   if (guess === targetWord) {
-    showAlert("You Win", 5000)
+    switch (remainingTiles.length) {
+      case 25:
+        showAlert("Genius or very lucky", 5000)
+        break;
+
+      case 20:
+        showAlert("Magnificent", 5000)
+        break;
+      
+      case 15:
+        showAlert("Impressive", 5000)
+        break;
+      
+      case 10:
+        showAlert("Splendid", 5000)
+        break;
+
+      case 5:
+        showAlert("Great", 5000)
+        break;
+
+      case 0:
+        showAlert("Phew!", 5000)
+      break;
+    }
     danceTiles(tiles)
     stopInteraction()
     showGoogle('Show the meaning of: ', targetWord.toUpperCase())
     return
   }
 
-  const remainingTiles = guessGrid.querySelectorAll(":not([data-letter])")
   if (remainingTiles.length === 0) {
     showAlert(targetWord.toUpperCase(), null)
     stopInteraction()
