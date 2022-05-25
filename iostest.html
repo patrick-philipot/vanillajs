@@ -16,7 +16,7 @@
       /* settings */
       .settings {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         /*background-color: greenyellow;*/
         justify-content: center;
         -ms-flex-item-align:start;
@@ -55,6 +55,37 @@
         transform: translateX(-50%);
       }
 
+      .alert {
+        pointer-events: none;
+        background-color: hsl(204, 7%, 85%);
+        padding: .75em;
+        border-radius: .25em;
+        opacity: 1;
+        transition: opacity 500ms ease-in-out;
+        margin-bottom: .5em;
+      }
+
+      .alert:last-child {
+        margin-bottom: 0;
+      }
+
+      .alert.hide {
+        opacity: 0;
+      }
+
+      #about {
+        width: 400px;
+        margin: 0 auto;
+        padding: 1em;
+        color: white;
+        background-color: green;
+        border-radius: 25px;
+        border-color: white;
+        border-style: solid;
+        border-width: 2px;
+
+      }
+
   </style>
 </head>
 <body>
@@ -65,6 +96,8 @@
       </span>
     </p>
   </div>
+
+  <button id="showAlert" onClick="testAlert()">Alert</button>
 
   <div class="square">
   </div>
@@ -82,6 +115,32 @@
         {hmPara.classList.add("hmOn")}
     else {hmPara.classList.remove("hmOn")}
 
+    }
+
+    function showAlert(message, duration = 1000) {
+      const alert = document.createElement("div")
+      alert.innerHTML = message
+      alert.classList.add("alert")
+      const alertContainer = document.querySelector('.settings')
+
+      alertContainer.prepend(alert)
+      if (duration == null) return
+
+      setTimeout(() => {
+        alert.classList.add("hide")
+        alert.addEventListener("transitionend", () => {
+          alert.remove()
+        })
+      }, duration)
+    }
+
+    function testAlert() {
+      const alertMessage = `<div id="about"><h1>About</h1>
+      <p>Version
+        Author
+      </p>
+      </div>`
+      showAlert(alertMessage, 3000)
     }
 
   </script>

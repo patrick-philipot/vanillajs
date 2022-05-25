@@ -15292,7 +15292,7 @@ const dictionary = [
 const WORD_LENGTH = 5
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
-const VERSION = '2.003'
+const VERSION = '2.004'
 const AUTHOR = 'Patrick Philipot'
 const SESAME = 'ccccc'
 // hard-mode
@@ -15528,7 +15528,13 @@ function submitGuess() {
 
   if (!dictionary.includes(guess)) {
     if (guess === SESAME) {
-      showAlert(`WORDLE clone - ver. ${VERSION} by ${AUTHOR}`, 5000)
+      const alertMessage = `<div id="about">
+      <h2>WORDLE clone</h2>
+      <hr>
+      <p>Version: ${VERSION} <br />
+      Author: ${AUTHOR}</p>
+      </div>`
+      showAlert(alertMessage, 5000)
     } else {
       showAlert("Not in word list")
       shakeTiles(activeTiles)
@@ -15589,7 +15595,7 @@ function getActiveTiles() {
 
 function showAlert(message, duration = 1000) {
   const alert = document.createElement("div")
-  alert.textContent = message
+  alert.innerHTML = message
   alert.classList.add("alert")
   alertContainer.prepend(alert)
   if (duration == null) return
