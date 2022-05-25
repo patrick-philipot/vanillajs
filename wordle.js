@@ -15579,7 +15579,7 @@ function getActiveTiles() {
 
 function showAlert(message, duration = 1000) {
   const alert = document.createElement("div")
-  alert.textContent = message
+  alert.innerHTML = message
   alert.classList.add("alert")
   alertContainer.prepend(alert)
   if (duration == null) return
@@ -15622,7 +15622,7 @@ function shakeTiles(tiles) {
 
 function checkWinLose(guess, tiles) {
   if (guess === targetWord) {
-    showAlert("You Win", 5000)
+    showAlert("You Win<br />Genius", 5000)
     danceTiles(tiles)
     stopInteraction()
     showGoogle('Show the meaning of: ', targetWord.toUpperCase())
