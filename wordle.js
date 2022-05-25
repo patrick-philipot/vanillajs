@@ -15292,8 +15292,9 @@ const dictionary = [
 const WORD_LENGTH = 5
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
-const VERSION = '2.004'
+const VERSION = '2.005'
 const AUTHOR = 'Patrick Philipot'
+const TESTER = 'Opi, Vicou, Annie'
 const SESAME = 'ccccc'
 // hard-mode
 var GameStarted = false
@@ -15342,11 +15343,13 @@ startInteraction()
 
 function startInteraction() {
   document.addEventListener("click", handleMouseClick)
+  document.addEventListener("dblclick", handleMouseClick)
   document.addEventListener("keydown", handleKeyPress)
 }
 
 function stopInteraction() {
   document.removeEventListener("click", handleMouseClick)
+  document.removeEventListener("dblclick", handleMouseClick)
   document.removeEventListener("keydown", handleKeyPress)
 }
 
@@ -15532,7 +15535,9 @@ function submitGuess() {
       <h2>WORDLE clone</h2>
       <hr>
       <p>Version: ${VERSION} <br />
-      Author: ${AUTHOR}</p>
+      Author: ${AUTHOR} <br />
+      Testing and feedback: ${TESTER}
+      </p>
       </div>`
       showAlert(alertMessage, 5000)
     } else {
