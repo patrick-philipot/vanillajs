@@ -15292,7 +15292,7 @@ const dictionary = [
 const WORD_LENGTH = 5
 const FLIP_ANIMATION_DURATION = 500
 const DANCE_ANIMATION_DURATION = 500
-const VERSION = '2.005'
+const VERSION = '2.006'
 const AUTHOR = 'Patrick Philipot'
 const TESTER = 'Opi, Vicou, Annie'
 const SESAME = 'ccccc'
@@ -15343,13 +15343,13 @@ startInteraction()
 
 function startInteraction() {
   document.addEventListener("click", handleMouseClick)
-  document.addEventListener("dblclick", handleMouseClick)
+  document.addEventListener("dblclick", handleDoubleClick)
   document.addEventListener("keydown", handleKeyPress)
 }
 
 function stopInteraction() {
   document.removeEventListener("click", handleMouseClick)
-  document.removeEventListener("dblclick", handleMouseClick)
+  document.removeEventListener("dblclick", handleDoubleClick)
   document.removeEventListener("keydown", handleKeyPress)
 }
 
@@ -15370,6 +15370,9 @@ function handleHardMode(e) {
     localStorage.hardmode = HardModeSet ? "yes" : "no"
   }
 }
+function handleDoubleClick(e) {
+  e.preventDefault()
+ }
 
 function handleMouseClick(e) {
   if (e.target.matches("[data-key]")) {
