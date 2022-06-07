@@ -1,4 +1,99 @@
-var data = [ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma bibliothèque Max et Lili</title>
+    <style>
+
+      #dataTable {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #dataTable td, #dataTable th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      #dataTable tr:nth-child(even){ background-color: #f2f2f2;}
+      #dataTable tr.lu { background-color: greenyellow;}
+
+      /*#dataTable tr:hover {background-color: #ddd;}*/
+
+      #dataTable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+      }
+
+      .lili {
+        margin: 0;
+        padding: 0;
+        width: 40px;
+        height: 45px;
+        border-radius: 50%;
+      }
+      .flat {
+        margin: 0;
+        padding: 0;
+        border: none;
+        /* background-color: white; */
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border: none;
+        cursor:pointer;
+        overflow: hidden;  
+      }
+
+      /** dialog **/
+      #modal img {
+        display: block;
+        /* display: flex;
+        flex-direction: column; */
+      }
+
+      .dialog-close {
+        margin: 1rem 0;
+        padding: 2rem 1rem;
+        font-size:large;
+        width: 100%;
+        background-color: greenyellow;
+        border:none;
+        border-radius: 5px;
+      }
+
+      #couverture {
+        width: 228px;
+        height: 300px;
+      }
+    </style>
+</head>
+<body>
+  <div>
+    <h1>Ma bibliothèque Max et Lili</h1>
+    <table id="dataTable" border="1">
+      <thead id="tableHead">
+        <tr id="tableRow">
+          <th>Numéro</th>
+          <th>Titre du livre</th>
+          <th>Couv.</th>
+          <th>Lu</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <dialog id="modal">
+    <img id="couverture" src="" alt="">
+    <button class="dialog-close">Fermer</button>
+  </dialog>
+
+<script>
+  var data = [ 
     { "title": "Lili ne veut pas se coucher", "lu": "non" },
     { "title": "Max n'aime pas lire", "lu": "non" },
     { "title": "Max est timide", "lu": "oui" },
@@ -158,3 +253,6 @@ function AffCouv( item ) {
 
   console.log(sItem)
 }
+</script>    
+</body>
+</html>
