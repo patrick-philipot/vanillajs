@@ -75,7 +75,7 @@ var data = [
     { "title": "Max et Lili aident les enfants du monde", "lu": "non" },
     { "title": "Lili se fait pieger sur internet", "lu": "oui" },
     { "title": "Emilie n'aime pas quand sa mère boit trop", "lu": "non" },
-    { "title": "Max ne respecte rien", "lu": "non" },
+    { "title": "Max ne respecte rien", "lu": "oui" },
     { "title": "Max aime les monstres", "lu": "non" },
     { "title": "Lili ne veut plus se montrer toute nue", "lu": "non" },
     { "title": "Lili part en camp de vacances", "lu": "non" },
@@ -125,7 +125,7 @@ var data = [
     { "title": "Max et Lili veulent soigner tout le monde", "lu": "non" },
     { "title": "Max et Lili aiment trop rire", "lu": "non" },
     { "title": "Max et Lili veulent se debrouiller seuls", "lu": "oui" },
-    { "title": "Max croit n'importe quoi", "lu": "non" },
+    { "title": "Max croit n'importe quoi", "lu": "oui" },
     { "title": "Max et Lili font les baby sitters", "lu": "non" }
     ];
 
