@@ -19,11 +19,3 @@ h3+div {
 h3.active+div {
   display:block;
 }
-
-/* h3:active > div.imgdisk {
-  background-color: green;
-} */
-
-/* h3:first-child {
-  display: none;
-} */

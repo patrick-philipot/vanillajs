@@ -1,22 +1,33 @@
+let activeH3
+
 document.addEventListener("click", e => {
-  let cible
   if (e.target.matches("h3")) {
-    cible = e.target
+    activeH3 = e.target
+    derouleImages()
   }
-  // if (e.target.matches("h3.active+div img")) {
-  //   console.log("click on visible image")
-  //   const image = e.target
-  //   console.log(image)
-  //   const parentH3 = image.closest('h3.active')
-  //   console.log(parentH3)
-  // }
-  if (cible != null) {
+  if (e.target.matches("h3.active+div img")) {
+    // console.log("click on visible image")
+    enrouleImages()
+  }
+
+})
+
+function derouleImages(){
+  if (activeH3 != null) {
     const allH3 = [...document.querySelectorAll("h3")]
-    const index = allH3.indexOf(cible)
+    const index = allH3.indexOf(activeH3)
 
     document.querySelectorAll("h3").forEach(elem => {
       elem.classList.remove("active")
     })
-    cible.classList.add("active")
+    activeH3.classList.add("active")
   }
-})
+}
+
+function enrouleImages() {
+  if (activeH3 != null) {
+    activeH3.classList.remove("active")
+  }
+}
+
+
